@@ -1,28 +1,91 @@
 <!doctype html>
 <html lang="ru">
+<head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Контур — концепт страницы оклейки</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#141715;color:#f5f4ed;font:17px system-ui}main,header{width:min(1050px,90%);margin:auto}header{padding:26px 0;border-bottom:1px solid #515650;display:flex;justify-content:space-between;gap:16px}small,p{color:#c8cec6}section{padding:clamp(35px,8vw,100px) 0}h1{font-size:clamp(43px,9vw,104px);line-height:.98;letter-spacing:-.06em;max-width:900px;margin:0 0 25px}p{max-width:520px;line-height:1.6}form{display:grid;gap:18px;padding:28px;background:#252b26;border-radius:18px;margin-bottom:48px;max-width:650px}label{display:grid;gap:7px}select,button{padding:13px;border-radius:8px;font:inherit}button{background:#d5fa92;border:0;font-weight:700;cursor:pointer}a{display:inline-block;background:#d5fa92;color:#141715;text-decoration:none;padding:14px 20px;border-radius:8px;font-weight:700}output{line-height:1.5}output:empty{display:none}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid white;outline-offset:4px}
-</style>
-<header><strong>КОНТУР</strong><small>Демонстрационный проект</small></header>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Контур — демонстрационный сайт студии детейлинга и защиты кузова.">
+<title>КОНТУР — студия детейлинга</title>
+<link rel="stylesheet" href="style.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Контур, на главную">КОНТУР<span>.</span></a>
+    <nav aria-label="Разделы страницы"><a href="#services">Услуги</a><a href="#work">Работы</a></nav>
+    <a class="nav-cta" href="#request">Запросить расчёт <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
 <main>
-<section><h1>Защитная плёнка для кузова</h1><p>Выберите, какие детали хотите защитить, и укажите удобный район. На консультации мастер уточнит комплектацию автомобиля и рассчитает стоимость.</p><a href="#quote">Запросить расчёт</a></section>
-<form id="quote">
-<h2>Что будем оклеивать?</h2>
-<label>Зона защиты<select name="coverage"><option>Капот, бампер и зеркала</option><option>Весь кузов</option><option>Отдельные детали</option></select></label>
-<label>Удобный район<select name="location"><option>Центр Москвы</option><option>Юг Москвы</option></select></label>
-<button>Показать запрос</button><output aria-live="polite"></output>
-</form>
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap hero-body">
+      <p class="kicker">Студия детейлинга / Москва</p>
+      <h1 id="title">Защита кузова.<br>Чистота линий.</h1>
+      <p class="intro">Оклейка защитной плёнкой, полировка и керамика. Подберём уход под состояние машины и твои поездки.</p>
+      <a class="button" href="#request">Рассчитать стоимость <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+  <section class="services wrap" id="services" aria-labelledby="service-title">
+    <div class="section-head">
+      <h2 id="service-title">Услуги</h2>
+      <p>Защита от сколов, уход за лаком и восстановление блеска.</p>
+    </div>
+    <div class="service-grid">
+      <article>
+        <h3>Защитная плёнка</h3>
+        <p>Оклеим зоны риска или весь кузов прозрачной полиуретановой плёнкой.</p>
+        <a href="#request" data-service="ppf" aria-label="Рассчитать оклейку защитной плёнкой">Рассчитать <span aria-hidden="true">↗</span></a>
+      </article>
+      <article>
+        <h3>Полировка кузова</h3>
+        <p>Оценим состояние лака, подберём степень коррекции и восстановим блеск.</p>
+        <a href="#request" data-service="polish" aria-label="Рассчитать полировку кузова">Рассчитать <span aria-hidden="true">↗</span></a>
+      </article>
+      <article>
+        <h3>Керамическое покрытие</h3>
+        <p>Подготовим кузов и нанесём покрытие, чтобы облегчить мойку и уход.</p>
+        <a href="#request" data-service="ceramic" aria-label="Рассчитать керамическое покрытие">Рассчитать <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+  </section>
+  <section class="work" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="work-title">Примеры работ</h2>
+        <p>Иллюстрации для демонстрации услуг</p>
+      </div>
+      <div class="work-grid">
+        <figure>
+          <img src="work-film.jpg" alt="Мастер в перчатках разглаживает прозрачную плёнку на передней части автомобиля" width="768" height="768" loading="lazy">
+          <figcaption><strong>Защита зон риска</strong><span>Капот, крылья и передний бампер</span></figcaption>
+        </figure>
+        <figure>
+          <img src="work-polish.jpg" alt="Отражение света на тёмном кузове автомобиля после полировки" width="768" height="768" loading="lazy">
+          <figcaption><strong>Полировка и керамика</strong><span>Восстановление блеска и защита лака</span></figcaption>
+        </figure>
+      </div>
+      <form class="request" id="request">
+        <div>
+          <h3>Сколько стоит для твоего авто?</h3>
+          <p>Выбери услугу и укажи марку и модель. Это демо, данные остаются на странице.</p>
+        </div>
+        <div class="fields">
+          <label>Услуга
+            <select id="service" required>
+              <option value="">Выбери услугу</option>
+              <option value="ppf">Защитная плёнка</option>
+              <option value="polish">Полировка кузова</option>
+              <option value="ceramic">Керамическое покрытие</option>
+            </select>
+          </label>
+          <label>Марка и модель<input id="car" maxlength="80" placeholder="Например, Audi A5" required></label>
+          <button class="button" type="submit">Показать запрос <span aria-hidden="true">↗</span></button>
+          <output aria-live="polite"></output>
+        </div>
+      </form>
+    </div>
+  </section>
 </main>
-<script>
-const form = document.querySelector('form');
-const result = form.querySelector('output');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(form);
-  result.textContent = `Ваш выбор — ${data.get('coverage')}, ${data.get('location')}. Это демо. Данные никуда не отправляются.`;
-});
-</script>
+<footer><div class="wrap footer"><a class="brand" href="#">КОНТУР<span>.</span></a><span>Демонстрационный сайт вымышленной студии</span></div></footer>
+</body>
 </html>
