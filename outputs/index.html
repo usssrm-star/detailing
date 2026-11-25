@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Контур — концепт страницы оклейки</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#141715;color:#f5f4ed;font:17px system-ui}main,header{width:min(1050px,90%);margin:auto}header{padding:26px 0;border-bottom:1px solid #515650;display:flex;justify-content:space-between;gap:16px}small,p{color:#c8cec6}section{padding:clamp(35px,8vw,100px) 0}h1{font-size:clamp(43px,9vw,104px);line-height:.98;letter-spacing:-.06em;max-width:900px;margin:0 0 25px}p{max-width:520px;line-height:1.6}form{display:grid;gap:18px;padding:28px;background:#252b26;border-radius:18px;margin-bottom:48px;max-width:650px}label{display:grid;gap:7px}select,button{padding:13px;border-radius:8px;font:inherit}button{background:#d5fa92;border:0;font-weight:700;cursor:pointer}a{display:inline-block;background:#d5fa92;color:#141715;text-decoration:none;padding:14px 20px;border-radius:8px;font-weight:700}output{line-height:1.5}output:empty{display:none}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid white;outline-offset:4px}
+</style>
+<header><strong>КОНТУР</strong><small>Демонстрационный проект</small></header>
+<main>
+<section><h1>Защитная плёнка для кузова</h1><p>Выберите, какие детали хотите защитить, и укажите удобный район. На консультации мастер уточнит комплектацию автомобиля и рассчитает стоимость.</p><a href="#quote">Запросить расчёт</a></section>
+<form id="quote">
+<h2>Что будем оклеивать?</h2>
+<label>Зона защиты<select name="coverage"><option>Капот, бампер и зеркала</option><option>Весь кузов</option><option>Отдельные детали</option></select></label>
+<label>Удобный район<select name="location"><option>Центр Москвы</option><option>Юг Москвы</option></select></label>
+<button>Показать запрос</button><output aria-live="polite"></output>
+</form>
+</main>
+<script>
+const form = document.querySelector('form');
+const result = form.querySelector('output');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const data = new FormData(form);
+  result.textContent = `Ваш выбор — ${data.get('coverage')}, ${data.get('location')}. Это демо. Данные никуда не отправляются.`;
+});
+</script>
+</html>
